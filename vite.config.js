@@ -16,6 +16,10 @@ export default defineConfig({
           src: 'assets/*',
           dest: '../public',
         },
+        {
+          src: 'dist/*',
+          dest: '../docs',
+        },
       ],
     }),
   ],
