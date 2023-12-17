@@ -10,6 +10,10 @@ import { AuthRoutes } from '../auth/routes/AuthRoutes';
  */
 const router = createBrowserRouter([
   {
+    path: '*',
+    element: <Navigate to='/' replace/>
+  },
+  {
     path: '/',
     element: <RootPage />,
     /**
