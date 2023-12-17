@@ -1,0 +1,59 @@
+import { useParams, Navigate, useNavigate } from 'react-router-dom';
+import { getHeroById } from '../helpers';
+import { useMemo } from 'react';
+const imagesUrl = import.meta.env.VITE_IMAGES_URL;
+
+export const HeroPage = () => {
+  const navigate = useNavigate();
+
+  //Este hook recoge los parametros pasados en la ruta
+  const { id } = useParams();
+
+  //Para que solo cargue el heroe si el id pasado por parametro cambia
+  const hero = useMemo(()=> getHeroById(id), [id]);
+
+  const onNavigateBack = () => {
+    //El -1 es para volver un paso atras en el historial de navegacion
+    navigate(-1);
+  };
+
+  if (!hero) {
+    return <Navigate to="/heroes" />;
+  }
+
+  return (
+    <div className="row mt-5">
+      <div className="col-4">
+        <img
+          src={`${imagesUrl}/${id}.jpg`}
+          alt={hero.supehero}
+          className="img-thumbnail animate__animated animate__fadeInLeft"
+        />
+      </div>
+      <div className="col-8 animate__animated animate__fadeInUp">
+        <h3>{hero.superhero}</h3>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">
+            <b className="me-2">Alter ego:</b>
+            {hero.alter_ego}
+          </li>
+          <li className="list-group-item">
+            <b className="me-2">Publisher:</b>
+            {hero.publisher}
+          </li>
+          <li className="list-group-item">
+            <b className="me-2">First appearance:</b>
+            {hero.first_appearance}
+          </li>
+        </ul>
+
+        <h5 className="mt-3">Characters</h5>
+        <p>{hero.characters}</p>
+
+        <button className="btn btn-outline-primary" onClick={onNavigateBack}>
+          Back
+        </button>
+      </div>
+    </div>
+  );
+};
