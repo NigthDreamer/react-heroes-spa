@@ -8,7 +8,6 @@ export const HeroPage = () => {
   
   const location = useLocation();
   const urlImages = PROD ? toPathRelative(location.pathname, VITE_IMAGES_URL) : VITE_IMAGES_URL;
-  console.log(urlImages)
 
   //Este hook recoge los parametros pasados en la ruta
   const { id } = useParams();
