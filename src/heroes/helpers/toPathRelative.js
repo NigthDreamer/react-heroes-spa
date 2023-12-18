@@ -4,7 +4,7 @@ export const toPathRelative = (routePath = '', url='') => {
   const childs = routePath.match(regex).length - 1;
 
   for (let i = 0; i < childs; i++) {
-    url=`../${url}`
+    url=`../react-heroes-spa/${url}`
   }
 
   return url;
