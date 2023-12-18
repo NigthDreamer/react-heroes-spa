@@ -1,10 +1,14 @@
-import { useParams, Navigate, useNavigate } from 'react-router-dom';
-import { getHeroById } from '../helpers';
+import { useParams, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { getHeroById, toPathRelative } from '../helpers';
 import { useMemo } from 'react';
-const imagesUrl = import.meta.env.VITE_IMAGES_URL;
+const { VITE_IMAGES_URL, PROD } = import.meta.env;
 
 export const HeroPage = () => {
   const navigate = useNavigate();
+  
+  const location = useLocation();
+  const urlImages = PROD ? toPathRelative(location.pathname, VITE_IMAGES_URL) : VITE_IMAGES_URL;
+  console.log(urlImages)
 
   //Este hook recoge los parametros pasados en la ruta
   const { id } = useParams();
@@ -25,7 +29,7 @@ export const HeroPage = () => {
     <div className="row mt-5">
       <div className="col-4">
         <img
-          src={`${imagesUrl}/${id}.jpg`}
+          src={`${urlImages}/${id}.jpg`}
           alt={hero.supehero}
           className="img-thumbnail animate__animated animate__fadeInLeft"
         />

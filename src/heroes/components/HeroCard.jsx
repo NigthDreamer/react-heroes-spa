@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
-const imagesUrl = import.meta.env.VITE_IMAGES_URL;
+import { Link, useLocation } from 'react-router-dom';
+import { toPathRelative } from '../helpers';
+const { VITE_IMAGES_URL, PROD } = import.meta.env;
 
 const CharactersByHero = ({ alter_ego, characters }) => {
   // if(alter_ego === characters) return(<></>);
@@ -8,13 +9,15 @@ const CharactersByHero = ({ alter_ego, characters }) => {
 };
 
 export const HeroCard = ({
-  id,
-  superhero,
-  alter_ego,
-  first_appearance,
-  characters,
-}) => {
-  const heroImageUrl = `${imagesUrl}/${id}.jpg`;
+    id,
+    superhero,
+    alter_ego,
+    first_appearance,
+    characters,
+  }) => {
+
+  const location = useLocation();
+  const urlImages = PROD ? toPathRelative(location.pathname, VITE_IMAGES_URL) : VITE_IMAGES_URL;
 
   // const charactersByHero = (<p>{characters}</p>)
 
@@ -23,7 +26,7 @@ export const HeroCard = ({
       <div className="card">
         <div className="row no-gutters">
           <div className="col-4">
-            <img src={heroImageUrl} className="card-img" alt={superhero} />
+            <img src={`${urlImages}/${id}.jpg`} className="card-img" alt={superhero} />
           </div>
 
           <div className="col-8">
