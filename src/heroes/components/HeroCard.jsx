@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import { toPathRelative } from '../helpers';
-const { VITE_IMAGES_URL, PROD } = import.meta.env;
+import { toPathRelative } from '../../helpers';
+
+const VITE_IMAGES_URL = process.env.VITE_IMAGES_URL;
+const PROD = process.env.PROD;
 
 const CharactersByHero = ({ alter_ego, characters }) => {
   // if(alter_ego === characters) return(<></>);

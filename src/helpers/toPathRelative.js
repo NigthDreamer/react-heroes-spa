@@ -1,6 +1,5 @@
 export const toPathRelative = (routePath = '', url='') => {
   const regex = /\/+/g;
-  console.log(routePath)
   const childs = routePath.match(regex).length - 1;
 
   // Bugfix del problema de GitHub Pages
