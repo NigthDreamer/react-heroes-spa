@@ -1,6 +1,10 @@
+import { AuthProvider } from './auth';
 import { AppRouter } from './router/AppRouter';
 
 export const HeroesApp = () => {
-  //No se puede meter un provider por encima del Approuter
-  return <AppRouter />;
+  return (
+    <AuthProvider>
+      <AppRouter />
+    </AuthProvider>
+  );
 };

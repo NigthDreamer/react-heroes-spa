@@ -1,7 +1,10 @@
 import { useParams, Navigate, useNavigate, useLocation } from 'react-router-dom';
-import { getHeroById, toPathRelative } from '../helpers';
+import { getHeroById } from '../helpers';
 import { useMemo } from 'react';
-const { VITE_IMAGES_URL, PROD } = import.meta.env;
+import { toPathRelative } from '../../helpers';
+
+const VITE_IMAGES_URL = process.env.VITE_IMAGES_URL;
+const PROD = process.env.PROD;
 
 export const HeroPage = () => {
   const navigate = useNavigate();
