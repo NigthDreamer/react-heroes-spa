@@ -37,8 +37,6 @@ describe('Pruebas en <AppRouter/>', () => {
       </AuthContext.Provider>
     );
 
-    screen.debug();
-
     expect(screen.getAllByText('Marvel').length).toBeGreaterThan(0);
 
   });
