@@ -16,7 +16,9 @@ exports[`Pruebas en <SearchPage/> Debe de mostrarse correctamente con valores po
         Searching
       </h4>
       <hr />
-      <form>
+      <form
+        aria-label="form"
+      >
         <input
           autocomplete="off"
           class="form-control"
@@ -40,11 +42,13 @@ exports[`Pruebas en <SearchPage/> Debe de mostrarse correctamente con valores po
       </h4>
       <div
         class="alert alert-primary mt-3 animate__animated animate__fadeIn"
+        data-testid="search-div"
       >
         Search a hero
       </div>
       <div
         class="alert alert-danger mt-3 animate__animated animate__fadeIn"
+        data-testid="search-error-div"
         style="display: none;"
       >
         No hero with 
