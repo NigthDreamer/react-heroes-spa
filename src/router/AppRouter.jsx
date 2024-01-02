@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     /**
      * Con poner el error page en el root vale para toda la aplicacion. En caso de querer
      * ponerlo tambien en los hijos, se debe de crear un erroPage especifico para cada uno
-     * de ellos, puesto que entrará que se mostrará éste en vez del princi
+     * de ellos, puesto que entrará en éste en vez de en el principal
      */
     errorElement: <ErrorPage/>, 
     children: [
