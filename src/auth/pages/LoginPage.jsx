@@ -10,7 +10,7 @@ export const LoginPage = () => {
     //Si hay una direccion guardada en el local storage, redirijo al usuario a ésta
     const lastPath = localStorage.getItem('lastpath') || '/';
 
-    await login('Fernando Herrera');
+    await login('NigthDreamer');
 
     navigate(lastPath, {
       replace: true,
