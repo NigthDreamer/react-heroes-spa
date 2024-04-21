@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { types } from '../../../src/auth';
 
 describe('Pruebas en types', () => {

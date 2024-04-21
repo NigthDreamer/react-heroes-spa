@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { authReducer } from '../../../src/auth';
 
 describe('Pruebas en authReducer', () => {

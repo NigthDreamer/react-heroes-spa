@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import { AuthContext } from '../../src/auth';
